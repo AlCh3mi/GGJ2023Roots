@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
@@ -8,6 +6,7 @@ using UnityEngine.Events;
 public class HourGlassTimer : MonoBehaviour
 {
     [SerializeField] private Image sandFillImage;
+    internal bool pauseTimer = false;
     public int Duration { get; private set; }
     
     private int remainingDuration;
@@ -39,6 +38,13 @@ public class HourGlassTimer : MonoBehaviour
     {
         while (remainingDuration > 0)
         {
+            if (pauseTimer)
+            {
+                Debug.Log("Timer Paused");
+                yield return new WaitForSeconds(10f);
+                pauseTimer = false;
+                Debug.Log(pauseTimer);
+            }
             UpdateUI(remainingDuration);
             remainingDuration--;
             yield return new WaitForSeconds(1f);
