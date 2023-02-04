@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using StarterAssets;
+using RoboRyanTron.Events;
 using UnityEngine;
 
-public class CollectibleSeed : MonoBehaviour
+public class CollectibleSeed : MonoBehaviour, ICollectibles
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameEvent seedCollected;
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Collect(collision.gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Collect(GameObject player)
     {
-        
+        if (player.CompareTag("Player"))
+        {
+            seedCollected.Raise();
+            gameObject.SetActive(false);
+        }
     }
 }
