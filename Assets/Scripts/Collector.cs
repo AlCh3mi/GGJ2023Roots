@@ -1,21 +1,16 @@
-﻿using UnityEngine;
+﻿using RoboRyanTron.Events;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace StarterAssets
 {
     public class Collector : MonoBehaviour, ICollector
     {
-        public UnityEvent<bool> shovelCollected;
+        public bool HasShovel { get; private set; }
 
-        private bool _hasShovel;
-        public bool HasShovel
+        public void SetShovelAcquired(bool value)
         {
-            get => _hasShovel;
-            set
-            {
-                _hasShovel = value;
-                shovelCollected?.Invoke(value);
-            }
+            HasShovel = value;
         }
     }
 }

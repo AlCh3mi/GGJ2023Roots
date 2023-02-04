@@ -1,4 +1,4 @@
 ﻿public interface ICollector
 {
-    bool HasShovel { get; set; }
+    bool HasShovel { get; }
 }

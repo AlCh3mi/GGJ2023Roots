@@ -1,14 +1,14 @@
 using StarterAssets;
 using System;
+using RoboRyanTron.Events;
 using UnityEngine;
 
 public class CollectibleShovel : MonoBehaviour, ICollectibles
 {
-    private bool collected = false;
-
+    [SerializeField] private GameEvent shovelCollected;
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && !collected)
+        if (collision.gameObject.CompareTag("Player"))
         {
             Collect(collision.gameObject);
         }
@@ -16,11 +16,11 @@ public class CollectibleShovel : MonoBehaviour, ICollectibles
 
     public void Collect(GameObject player)
     {
-        collected = true;
         Debug.Log("Collected");
-        if (player.TryGetComponent<ICollector>(out var collector))
+        if (player.CompareTag("Player"))
         {
-            collector.HasShovel = true;
+            //collector.HasShovel = true;
+            shovelCollected.Raise();
             gameObject.SetActive(false);
         }
     }
