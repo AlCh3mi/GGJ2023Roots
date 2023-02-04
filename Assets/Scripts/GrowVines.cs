@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace StarterAssets
 {
-    public class GrowVines : MonoBehaviour
+    public class GrowVines : MonoBehaviour, IDamageable
     {
         [SerializeField] private bool startGrown;
         [SerializeField] private Collider meshCollider;
@@ -31,7 +31,7 @@ namespace StarterAssets
         
         public void Grow(bool grow)
         {
-            meshCollider.gameObject.SetActive(grow);
+            meshCollider.enabled = grow;
             StartCoroutine(GrowRoutine(grow, growTime));
         }
 
@@ -47,6 +47,12 @@ namespace StarterAssets
 
                 yield return null;
             }
+        }
+
+        public void TakeDamage(float dmg)
+        {
+            Grow(false);
+            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!");
         }
     }
 }
