@@ -12,6 +12,7 @@ namespace StarterAssets
         
         private MeshRenderer[] renderers;
         private List<Material> mats = new ();
+        public AudioSource audio;
 
         private void Awake()
         {
@@ -33,6 +34,7 @@ namespace StarterAssets
         {
             meshCollider.enabled = grow;
             StartCoroutine(GrowRoutine(grow, growTime));
+            audio.Play();
         }
 
         private IEnumerator GrowRoutine(bool grow, float lerpTime)
