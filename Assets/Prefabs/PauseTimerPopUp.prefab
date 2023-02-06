@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: feea1a1ef6edcc747a57dc7de96643a6, type: 2}
+  - {fileID: 2100000, guid: 0a3f97366efdd724cba471c7c7fed703, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hourGlassTimer: {fileID: 0}
+  rotationSpeed: 0.5
 --- !u!114 &186205274982054920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +223,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 390c3790f26a6d2418f1d1662f59658d, type: 2}
+      objectReference: {fileID: 2100000, guid: 74306d105fad1524bbb80d1c7235b9d1, type: 2}
     - target: {fileID: 919132149155446097, guid: 0fb6ada8fa53d4af684eef6cdb9438d0,
         type: 3}
       propertyPath: m_Name
