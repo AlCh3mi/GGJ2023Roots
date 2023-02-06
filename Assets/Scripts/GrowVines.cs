@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace StarterAssets
 {
@@ -12,10 +13,14 @@ namespace StarterAssets
         
         private MeshRenderer[] renderers;
         private List<Material> mats = new ();
-        public AudioSource audio;
+        public AudioSource audioSource;
 
         private void Awake()
         {
+
+            if (!audioSource)
+                audioSource = GetComponent<AudioSource>();
+            
             renderers = GetComponentsInChildren<MeshRenderer>();
             foreach (var renderer in renderers)
             {
@@ -34,7 +39,7 @@ namespace StarterAssets
         {
             meshCollider.enabled = grow;
             StartCoroutine(GrowRoutine(grow, growTime));
-            audio.Play();
+            audioSource.Play();
         }
 
         private IEnumerator GrowRoutine(bool grow, float lerpTime)
@@ -54,7 +59,6 @@ namespace StarterAssets
         public void TakeDamage(float dmg)
         {
             Grow(false);
-            Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!");
         }
     }
 }

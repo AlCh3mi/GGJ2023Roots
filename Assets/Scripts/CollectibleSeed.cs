@@ -5,6 +5,7 @@ using UnityEngine;
 public class CollectibleSeed : MonoBehaviour, ICollectibles
 {
     [SerializeField] private GameEvent seedCollected;
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))

@@ -7,7 +7,7 @@ public class HourGlassTimer : MonoBehaviour
 {
     [SerializeField] private Image sandFillImage;
     internal bool pauseTimer = false;
-    public int Duration { get; private set; }
+    public int Duration => remainingDuration;
     public UnityEvent OnTimerEnd;
     
     private int remainingDuration;
@@ -20,12 +20,12 @@ public class HourGlassTimer : MonoBehaviour
     private void ResetTimer()
     {
         sandFillImage.fillAmount = 0f;
-        Duration = remainingDuration = 0;
+        remainingDuration = 0;
     }
 
     public HourGlassTimer SetDuration(int seconds)
     {
-        Duration = remainingDuration = seconds;
+        remainingDuration = seconds;
         return this;
     }
 
@@ -53,7 +53,7 @@ public class HourGlassTimer : MonoBehaviour
         OnTimerEnd.Invoke();
     }
 
-    private void UpdateUI( int seconds)
+    private void UpdateUI(int seconds)
     {
         sandFillImage.fillAmount = Mathf.InverseLerp(0, Duration, seconds);
     }

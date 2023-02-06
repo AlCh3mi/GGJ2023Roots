@@ -19,7 +19,6 @@ public class CollectibleShovel : MonoBehaviour, ICollectibles
         Debug.Log("Collected");
         if (player.CompareTag("Player"))
         {
-            //collector.HasShovel = true;
             shovelCollected.Raise();
             gameObject.SetActive(false);
         }
