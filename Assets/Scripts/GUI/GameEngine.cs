@@ -1,30 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameEngine : MonoBehaviour
 {
+    [SerializeField] private HourGlassTimer _timer;
+
     public int stopwatch = 300; //5 minute default time
     
-    [SerializeField] private HourGlassTimer _timer;
 
     void Start()
     {
         _timer.SetDuration(stopwatch).Begin();
-        _timer.OnTimerElapsed.AddListener(LoadGameOverScene);
+        _timer.OnTimerEnd.AddListener(HandleTimerEnd);
     }
+
 
     void Update()
     {
-        if (_timer.HasElapsed)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
-
+        
     }
-    
-    void LoadGameOverScene()
+
+    private void HandleTimerEnd()
     {
         SceneManager.LoadScene("GameOver");
     }

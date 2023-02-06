@@ -6,12 +6,9 @@ using UnityEngine.Events;
 public class HourGlassTimer : MonoBehaviour
 {
     [SerializeField] private Image sandFillImage;
-    
-    public bool HasElapsed { get; set; }
-    public UnityEvent OnTimerElapsed = new UnityEvent();
-    public int Duration { get; private set; }
-    
     internal bool pauseTimer = false;
+    public int Duration { get; private set; }
+    public UnityEvent OnTimerEnd;
     
     private int remainingDuration;
 
@@ -44,29 +41,20 @@ public class HourGlassTimer : MonoBehaviour
         {
             if (pauseTimer)
             {
+                Debug.Log("Timer Paused");
                 yield return new WaitForSeconds(10f);
                 pauseTimer = false;
+                Debug.Log("Resume countdown");
             }
             UpdateUI(remainingDuration);
             remainingDuration--;
             yield return new WaitForSeconds(1f);
         }
-        End();
+        OnTimerEnd.Invoke();
     }
 
     private void UpdateUI( int seconds)
     {
         sandFillImage.fillAmount = Mathf.InverseLerp(0, Duration, seconds);
-    }
-
-    public void End()
-    {
-        ResetTimer();
-        OnTimerElapsed.Invoke();
-    }
-
-    public void OnDestroy()
-    {
-        StopAllCoroutines();
     }
 }
