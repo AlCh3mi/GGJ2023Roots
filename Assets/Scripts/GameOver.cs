@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
         SceneManager.LoadScene("Maze");
     }
     
-    private void ExitGame()
+    public void ExitGame()
     {
         SceneManager.LoadScene("Credits");
         //yield return new WaitForSeconds(5);

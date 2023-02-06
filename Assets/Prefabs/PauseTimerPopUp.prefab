@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a3f97366efdd724cba471c7c7fed703, type: 2}
+  - {fileID: 2100000, guid: feea1a1ef6edcc747a57dc7de96643a6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,7 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 966fde6685b5ead44a2e57beacc1e5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hourGlassTimer: {fileID: 0}
+  hourGlassTimer: {fileID: 1905112184293714158, guid: 36ebd8e0a289f454b8e70225e80d8878,
+    type: 3}
   rotationSpeed: 0.5
 --- !u!114 &186205274982054920
 MonoBehaviour:
