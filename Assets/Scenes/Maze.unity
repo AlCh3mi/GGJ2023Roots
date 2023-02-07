@@ -14495,6 +14495,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1660160537}
     m_Modifications:
+    - target: {fileID: 1905112183922928253, guid: 36ebd8e0a289f454b8e70225e80d8878,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1905112184293714156, guid: 36ebd8e0a289f454b8e70225e80d8878,
         type: 3}
       propertyPath: m_Name
@@ -14604,6 +14609,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905112184293714158, guid: 36ebd8e0a289f454b8e70225e80d8878,
+        type: 3}
+      propertyPath: onTimerEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905112184293714158, guid: 36ebd8e0a289f454b8e70225e80d8878,
+        type: 3}
+      propertyPath: onTimerEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1905112184293714158, guid: 36ebd8e0a289f454b8e70225e80d8878,
+        type: 3}
+      propertyPath: onTimerEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36ebd8e0a289f454b8e70225e80d8878, type: 3}
@@ -20953,8 +20973,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e7b4a17bc0a4f4ea364751e5e95928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timer: {fileID: 1431154055}
-  stopwatch: 100
+  timer: {fileID: 1431154055}
+  stopwatch: 10
 --- !u!4 &1517821246
 Transform:
   m_ObjectHideFlags: 0

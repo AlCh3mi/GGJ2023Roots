@@ -2,15 +2,16 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 public class HourGlassTimer : MonoBehaviour
 {
     [SerializeField] private Image sandFillImage;
-    internal bool pauseTimer = false;
-    public int Duration => remainingDuration;
-    public UnityEvent OnTimerEnd;
+    internal bool PauseTimer = false;
+    public int Duration => _remainingDuration;
+    [FormerlySerializedAs("OnTimerEnd")] public UnityEvent onTimerEnd;
     
-    private int remainingDuration;
+    private int _remainingDuration;
 
     private void Awake()
     {
@@ -20,12 +21,12 @@ public class HourGlassTimer : MonoBehaviour
     private void ResetTimer()
     {
         sandFillImage.fillAmount = 0f;
-        remainingDuration = 0;
+        _remainingDuration = 0;
     }
 
     public HourGlassTimer SetDuration(int seconds)
     {
-        remainingDuration = seconds;
+        _remainingDuration = seconds;
         return this;
     }
 
@@ -37,20 +38,20 @@ public class HourGlassTimer : MonoBehaviour
 
     private IEnumerator UpdateTimer()
     {
-        while (remainingDuration > 0)
+        while (_remainingDuration > 0)
         {
-            if (pauseTimer)
+            if (PauseTimer)
             {
                 Debug.Log("Timer Paused");
                 yield return new WaitForSeconds(10f);
-                pauseTimer = false;
+                PauseTimer = false;
                 Debug.Log("Resume countdown");
             }
-            UpdateUI(remainingDuration);
-            remainingDuration--;
+            UpdateUI(_remainingDuration);
+            _remainingDuration--;
             yield return new WaitForSeconds(1f);
         }
-        OnTimerEnd.Invoke();
+        onTimerEnd.Invoke();
     }
 
     private void UpdateUI(int seconds)

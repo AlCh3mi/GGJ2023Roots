@@ -12,8 +12,8 @@ public class PauseTimerPopUp : MonoBehaviour
 
     public void PauseTime()
     {
-        hourGlassTimer.pauseTimer = true;
-        Debug.Log(hourGlassTimer.pauseTimer);
+        hourGlassTimer.PauseTimer = true;
+        Debug.Log(hourGlassTimer.PauseTimer);
         Destroy(gameObject);
     }
 }

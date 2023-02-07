@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MusicPlayer : MonoBehaviour
 {
@@ -7,6 +6,6 @@ public class MusicPlayer : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.Instance.PlayMusic(music, true);
+        AudioManager.Instance.PlayMusic(music);
     }
 }
