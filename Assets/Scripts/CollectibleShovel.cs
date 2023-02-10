@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CollectibleShovel : MonoBehaviour, ICollectibles
 {
-    [SerializeField] private GameEvent shovelCollected;
+    [SerializeField] public GameEvent shovelCollected;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))

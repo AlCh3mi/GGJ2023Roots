@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectibleSeed : MonoBehaviour, ICollectibles
 {
-    [SerializeField] private GameEvent seedCollected;
+    [SerializeField] public GameEvent seedCollected;
     
     private void OnCollisionEnter(Collision collision)
     {

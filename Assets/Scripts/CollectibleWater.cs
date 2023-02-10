@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectibleWater : MonoBehaviour, ICollectibles
 {
-    [SerializeField] private GameEvent waterCollected;
+    [SerializeField] public GameEvent waterCollected;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
