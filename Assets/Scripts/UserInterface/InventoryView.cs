@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace StarterAssets.GUI
+namespace UserInterface
 {
     public class InventoryView : MonoBehaviour
     {

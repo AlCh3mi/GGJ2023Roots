@@ -5,11 +5,10 @@
 // Date:   10/04/17
 // ----------------------------------------------------------------------------
 
-using RoboRyanTron.Events;
 using UnityEditor;
 using UnityEngine;
 
-namespace Events.Editor
+namespace RoboRyanTron.Events.Editor
 {
     [CustomEditor(typeof(GameEvent), editorForChildClasses: true)]
     public class EventEditor : UnityEditor.Editor

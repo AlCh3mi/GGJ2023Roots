@@ -1,28 +1,24 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace StarterAssets
+public class TriggerCallbacks : MonoBehaviour
 {
-    public class TriggerCallbacks : MonoBehaviour
-    {
-        [SerializeField] private bool playerOnly;
+    [SerializeField] private bool playerOnly;
         
-        public UnityEvent TriggerEnter;
+    public UnityEvent TriggerEnter;
 
-        private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
+    {
+        if(!playerOnly)
         {
-            if(!playerOnly)
-            {
-                TriggerEnter?.Invoke();
-                return;
-            }        
-            
-            if(!other.CompareTag("Player"))
-                return;
-            
             TriggerEnter?.Invoke();
+            return;
+        }        
+            
+        if(!other.CompareTag("Player"))
+            return;
+            
+        TriggerEnter?.Invoke();
                
-        }
     }
 }

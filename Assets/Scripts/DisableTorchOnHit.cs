@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 
-namespace StarterAssets
+public class DisableTorchOnHit : MonoBehaviour
 {
-    public class DisableTorchOnHit : MonoBehaviour
-    {
-        [SerializeField] private SphereCollider torchCollider;
+    [SerializeField] private SphereCollider torchCollider;
         
-        private void DisableColliderOnTorch()
-        {
-            torchCollider.enabled = false;
-        }
+    private void DisableColliderOnTorch()
+    {
+        torchCollider.enabled = false;
     }
 }
