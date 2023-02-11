@@ -1,60 +1,101 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+
 
 public class HourGlassTimer : MonoBehaviour
 {
-    [SerializeField] private Image sandFillImage;
-    internal bool pauseTimer = false;
-    public int Duration { get; private set; }
-    public UnityEvent OnTimerEnd;
+    [SerializeField] private bool startWhenGameStarts;
+    [SerializeField] private float startingTime;
     
-    private int remainingDuration;
+    public UnityEvent<float, float> remainingDurationUpdatedEvent;
+    public UnityEvent<float> pauseTimeUpdatedEvent;
+    public UnityEvent timePausedEvent;
+    public UnityEvent timesUpEvent;
 
-    private void Awake()
+    private float pauseTime = 0f;
+    public float PauseTime
+    {
+        get => pauseTime;
+        private set
+        {
+            pauseTime = Mathf.Clamp(value, 0f, float.MaxValue);
+            pauseTimeUpdatedEvent?.Invoke(pauseTime);
+        }
+    }
+
+    private float remainingDuration;
+    public float RemainingDuration
+    {
+        get => remainingDuration;
+        private set
+        {
+            remainingDuration = Mathf.Clamp(value, 0f, float.MaxValue);
+            remainingDurationUpdatedEvent?.Invoke(remainingDuration, Duration);
+            
+            if(remainingDuration <= 0f && IsRunning && !IsPaused)
+            {
+                timesUpEvent?.Invoke();
+                Stop();
+            }
+        }
+    }
+    
+    public float Duration { get; private set; }
+
+    public bool IsRunning { get; private set; }
+    public bool IsPaused => PauseTime > 0f;
+
+    private void Start()
     {
         ResetTimer();
+        
+        if(startWhenGameStarts)
+            Begin();
     }
 
     private void ResetTimer()
     {
-        sandFillImage.fillAmount = 0f;
-        Duration = remainingDuration = 0;
+        SetDuration(startingTime);
+        RemainingDuration = Duration;
+        PauseTime = 0f;
+        IsRunning = false;
     }
 
-    public HourGlassTimer SetDuration(int seconds)
+    public void SetDuration(float seconds)
     {
-        Duration = remainingDuration = seconds;
-        return this;
+        Duration = seconds;
     }
 
     public void Begin()
     {
-        StopAllCoroutines();
-        StartCoroutine(UpdateTimer());
+        if(Duration > 0f)
+            IsRunning = true;
     }
 
-    private IEnumerator UpdateTimer()
+    public void Stop()
     {
-        while (remainingDuration > 0)
+        IsRunning = false;
+    }
+
+    public void Pause(float time)
+    {
+        if(!IsPaused)
+            timePausedEvent?.Invoke();
+        
+        PauseTime += time;
+    }
+
+    private void Update()
+    {
+        if(!IsRunning)
+            return;
+
+        if (IsPaused)
         {
-            if (pauseTimer)
-            {
-                Debug.Log("Timer Paused");
-                yield return new WaitForSeconds(10f);
-                pauseTimer = false;
-                Debug.Log("Resume countdown");
-            }
-            UpdateUI(remainingDuration);
-            remainingDuration--;
-            yield return new WaitForSeconds(1f);
+            PauseTime -= Time.deltaTime;
+            return;
         }
-        OnTimerEnd.Invoke();
-    }
-
-    private void UpdateUI( int seconds)
-    {
-        sandFillImage.fillAmount = Mathf.InverseLerp(0, Duration, seconds);
+    
+        RemainingDuration -= Time.deltaTime;
     }
 }

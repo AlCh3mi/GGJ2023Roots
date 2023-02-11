@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 1905112184293714157}
   - component: {fileID: 1905112184293714152}
   - component: {fileID: 1905112184293714159}
-  - component: {fileID: 1905112184293714158}
+  - component: {fileID: 6829930240533204632}
   m_Layer: 5
   m_Name: HourGlass
   m_TagString: Untagged
@@ -154,7 +154,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1905112184293714158
+--- !u!114 &6829930240533204632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -163,7 +163,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1905112184293714156}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f2716438f0272747a9ce32e0b9ac49e, type: 3}
+  m_Script: {fileID: 11500000, guid: b4e7b4a17bc0a4f4ea364751e5e95928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sandFillImage: {fileID: 1905112183922928253}
+  timer: {fileID: 0}
+  hourGlassIcon: {fileID: 1905112183922928253}
+  freezeColor: {r: 0.29156283, g: 0.92109424, b: 0.9811321, a: 1}
