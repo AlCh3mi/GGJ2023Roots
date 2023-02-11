@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +9,7 @@ public class HourGlassUI : MonoBehaviour
     [SerializeField] private Image hourGlassIcon;
 
     [SerializeField] private Color freezeColor;
-    [SerializeField] private Vector3 punch = Vector3.one;
+    [SerializeField] private Vector3 punch = Vector3.forward * 135;
 
     private Color sandColor;
     
@@ -19,20 +18,17 @@ public class HourGlassUI : MonoBehaviour
         sandColor = hourGlassIcon.color;
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         timer.remainingDurationUpdatedEvent.AddListener(OnRemainingDurationUpdated);
         timer.timePausedEvent.AddListener(OnTimePaused);
-        timer.pauseTimeUpdatedEvent.AddListener(OnPauseTimeUpdated);
         timer.timesUpEvent.AddListener(OnTimesUp);
     }
-
 
     private void OnDisable()
     {
         timer.remainingDurationUpdatedEvent.RemoveListener(OnRemainingDurationUpdated);
         timer.timePausedEvent.RemoveListener(OnTimePaused);
-        timer.pauseTimeUpdatedEvent.RemoveListener(OnPauseTimeUpdated);
         timer.timesUpEvent.RemoveListener(OnTimesUp);
     }
     
@@ -42,22 +38,12 @@ public class HourGlassUI : MonoBehaviour
         hourGlassIcon.fillAmount = Mathf.InverseLerp(0f, duration, remainingDuration);
     }
 
-    private void OnPauseTimeUpdated(float remainingPauseTime)
-    {
-        //could show remaining pause time here, if we wanted
-    }
-
     private void OnTimePaused()
     {
         hourGlassIcon.color = freezeColor;
         if (transform.gameObject.TryGetComponent<RectTransform>(out var rect))
-        {
             rect.DOPunchRotation(punch, 10f);
-        }
     }
     
-    private void OnTimesUp()
-    {
-        SceneManager.LoadScene("GameOver");
-    }
+    private void OnTimesUp() => SceneManager.LoadScene("GameOver");
 }
