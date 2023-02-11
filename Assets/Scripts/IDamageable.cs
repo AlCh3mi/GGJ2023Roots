@@ -1,7 +1,4 @@
-﻿namespace StarterAssets
+﻿internal interface IDamageable
 {
-    internal interface IDamageable
-    {
-        void TakeDamage(float dmg);
-    }
+    void TakeDamage(float dmg);
 }

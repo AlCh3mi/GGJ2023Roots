@@ -88,10 +88,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1364735049486834280}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e14b6f2dfd228344e972afe72f9de4ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 111578b38c7041dcba97c364923c6bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shovelCollected: {fileID: 11400000, guid: 2d4419b5ca3ef5a4ca49b895726549d0, type: 2}
+  collectedEvent: {fileID: 11400000, guid: 2d4419b5ca3ef5a4ca49b895726549d0, type: 2}
 --- !u!114 &9210768058094157634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,8 +180,7 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 64363378658756098, guid: 5c868988ef50ecf4fae1dd53fdeaa176, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c868988ef50ecf4fae1dd53fdeaa176, type: 3}
 --- !u!4 &7867272177168619121 stripped
 Transform:

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8985862096104427792}
   - component: {fileID: 788738668381185041}
   - component: {fileID: 1976063776746513491}
-  - component: {fileID: 7617667933827393388}
   m_Layer: 0
   m_Name: Seed
   m_TagString: Untagged
@@ -46,10 +45,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5775056684403470001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a321fb613661d094e844ffab55f764aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 111578b38c7041dcba97c364923c6bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seedCollected: {fileID: 11400000, guid: b47820dd8f64d614abcde6231dd4ddd1, type: 2}
+  collectedEvent: {fileID: 11400000, guid: b47820dd8f64d614abcde6231dd4ddd1, type: 2}
 --- !u!54 &8985862096104427792
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -92,22 +91,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7617667933827393388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5775056684403470001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e839e4c12473014b9b3d3faccc0f61d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: b47820dd8f64d614abcde6231dd4ddd1, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &5775056683514446640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -147,8 +130,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 64252246357282532, guid: facb720564d9d9b4089159d75fb44b4a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: facb720564d9d9b4089159d75fb44b4a, type: 3}
 --- !u!4 &5779318070943563256 stripped
 Transform:

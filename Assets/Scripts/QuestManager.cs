@@ -1,50 +1,38 @@
-﻿using StarterAssets;
-using RoboRyanTron.Events;
+﻿using RoboRyanTron.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class QuestManager : MonoBehaviour
 {
-    [SerializeField] private CollectibleShovel shovel;
-    [SerializeField] private CollectibleSeed seed;
-    [SerializeField] private CollectibleWater water;
+    [field:SerializeField] public bool HasSeed {get; private set;}
+    [field:SerializeField] public bool HasWater {get; private set;}
+    [field:SerializeField] public bool HasShovel {get; private set;}
 
-    private bool shovelCollected = false;
-    private bool seedCollected = false;
-    private bool waterCollected = false;
+    public UnityEvent allConditionsMet;
 
-    private void Start()
+    public bool HasAllRequirements => HasSeed && HasWater && HasShovel;
+
+    public void OnSeedCollected()
     {
-        shovel.gameObject.SetActive(true);
-        seed.gameObject.SetActive(false);
-        water.gameObject.SetActive(false);
-
-        GameEventListener shovelListener = gameObject.AddComponent<GameEventListener>();
-        shovelListener.Event = shovel.shovelCollected;
-        shovelListener.Response.AddListener(HandleShovelCollected);
-
-        GameEventListener seedListener = gameObject.AddComponent<GameEventListener>();
-        seedListener.Event = seed.seedCollected;
-        seedListener.Response.AddListener(HandleSeedCollected);
-
-        GameEventListener waterListener = gameObject.AddComponent<GameEventListener>();
-        waterListener.Event = water.waterCollected;
-        waterListener.Response.AddListener(HandleWaterCollected);
+        HasSeed = true;
+        RequirementsCheck();
     }
 
-    private void HandleShovelCollected()
+    public void OnWaterCollected()
     {
-        shovelCollected = true;
-        seed.gameObject.SetActive(true);
+        HasWater = true;
+        RequirementsCheck();
     }
 
-    private void HandleSeedCollected()
+    public void OnShovelCollected()
     {
-        seedCollected = true;
-        water.gameObject.SetActive(true);
+        HasShovel = true;
+        RequirementsCheck();
     }
 
-    private void HandleWaterCollected()
+    private void RequirementsCheck()
     {
-        waterCollected = true;
+        if(HasAllRequirements)
+            allConditionsMet?.Invoke();
     }
 }

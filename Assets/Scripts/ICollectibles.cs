@@ -1,9 +1,4 @@
-using UnityEngine;
-
-namespace StarterAssets
+internal interface ICollectibles
 {
-    internal interface ICollectibles
-    {
-        void Collect(GameObject player);
-    }
+    void Collect();
 }

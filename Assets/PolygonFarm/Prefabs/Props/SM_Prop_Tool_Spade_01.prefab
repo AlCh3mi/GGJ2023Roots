@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4435005775557140}
   - component: {fileID: 33870873370199102}
   - component: {fileID: 23013961179343866}
-  - component: {fileID: 64363378658756098}
   m_Layer: 0
   m_Name: SM_Prop_Tool_Spade_01
   m_TagString: Untagged
@@ -84,17 +83,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64363378658756098
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968298529172754}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43483883168258754, guid: c63c4e60edbc9d04bb1eb6680630914b, type: 2}
