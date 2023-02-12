@@ -16,6 +16,6 @@ public class TreeReveal : MonoBehaviour
             source.Play();
         }
         
-        transform.DOMoveY(treeDesiredHeight, revealTime);
+        transform.DOMoveY(treeDesiredHeight, revealTime).SetAutoKill(true);
     }
 }

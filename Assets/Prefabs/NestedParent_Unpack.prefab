@@ -207,6 +207,12 @@ SphereCollider:
     type: 3}
   m_PrefabInstance: {fileID: 1797418870}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &108446888595063357 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 108446887871704395, guid: 4745d1d7800129342a1b23f92c31715a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1797418870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7007653481041285266 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7007653479277445092, guid: 4745d1d7800129342a1b23f92c31715a,
@@ -342,6 +348,23 @@ MonoBehaviour:
   anim: {fileID: 1275465414}
   torchCollider: {fileID: 604485731}
   damage: 1
+--- !u!114 &6986954239511793979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7007653481041285266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b938936a10d4d7298ee95269aefe691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 18
+  max: 30
+  frequency: 0.05
+  targetLight: {fileID: 108446888595063357}
+  _active: 1
 --- !u!4 &7013795465823917092 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7013795465368730450, guid: 4745d1d7800129342a1b23f92c31715a,
