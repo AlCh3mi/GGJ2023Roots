@@ -10,15 +10,9 @@ namespace UserInterface
         [SerializeField] private HourGlassTimer timer;
         [SerializeField] private Image hourGlassIcon;
 
+        [SerializeField] private Color sandColor;
         [SerializeField] private Color freezeColor;
         [SerializeField] private Vector3 punch = Vector3.forward * 135;
-
-        private Color sandColor;
-    
-        private void Start()
-        {
-            sandColor = hourGlassIcon.color;
-        }
 
         private void OnEnable()
         {

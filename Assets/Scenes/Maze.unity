@@ -7235,7 +7235,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.1
+      value: -0.51
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -7245,7 +7245,7 @@ PrefabInstance:
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.7
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: 6556307555316582679, guid: 035bf1ba97d19214580cfe6f5a29fdc3,
         type: 3}
@@ -7287,7 +7287,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: NestedParent_Unpack
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8263371922820164202, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 035bf1ba97d19214580cfe6f5a29fdc3, type: 3}
 --- !u!1001 &527568868
 PrefabInstance:
@@ -9542,7 +9543,7 @@ PrefabInstance:
     - target: {fileID: 5775056684403469998, guid: bdde5005f61949f41862fa1c999c9a31,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.062
+      value: 0.006
       objectReference: {fileID: 0}
     - target: {fileID: 5775056684403469998, guid: bdde5005f61949f41862fa1c999c9a31,
         type: 3}
@@ -14051,6 +14052,26 @@ PrefabInstance:
         type: 3}
       propertyPath: punch.z
       value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829930240533204632, guid: 36ebd8e0a289f454b8e70225e80d8878,
+        type: 3}
+      propertyPath: sandColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829930240533204632, guid: 36ebd8e0a289f454b8e70225e80d8878,
+        type: 3}
+      propertyPath: sandColor.b
+      value: 0.34509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829930240533204632, guid: 36ebd8e0a289f454b8e70225e80d8878,
+        type: 3}
+      propertyPath: sandColor.g
+      value: 0.5568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 6829930240533204632, guid: 36ebd8e0a289f454b8e70225e80d8878,
+        type: 3}
+      propertyPath: sandColor.r
+      value: 0.7921569
       objectReference: {fileID: 0}
     - target: {fileID: 6829930240533204632, guid: 36ebd8e0a289f454b8e70225e80d8878,
         type: 3}

@@ -30,7 +30,6 @@ namespace RoboRyanTron.Events
 
         public virtual void OnEventRaised()
         {
-            Debug.Log("shovelCollected event raised");
             Response.Invoke();
         }
     }
