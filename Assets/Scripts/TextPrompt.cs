@@ -60,21 +60,4 @@ public class TextPrompt : MonoBehaviour
     {
         text.text = string.Empty;
     }
-
-    #region Debug
-    [ContextMenu("TestMessage")]
-    public void Test()
-    {
-        var testCases = new[]
-        {
-            "This is a test Message1",
-            "This is a test Message2",
-            "This is a test Message3",
-            "This is a test Message4"
-        };
-
-        foreach (var testCase in testCases)
-            Instance.AddPrompt(testCase);
-    }
-    #endregion
 }
