@@ -12,7 +12,7 @@ public class CursorLock : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(toggleKey))
+        /*if (Input.GetKeyDown(toggleKey))
         {
             Cursor.lockState = Cursor.lockState == CursorLockMode.Locked ? CursorLockMode.None : CursorLockMode.Locked;
         }
@@ -22,6 +22,6 @@ public class CursorLock : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y");
 
         player.transform.Rotate(Vector3.up * mouseX);
-        player.transform.Rotate(Vector3.right * -mouseY);
+        player.transform.Rotate(Vector3.right * -mouseY);*/
     }
 }
